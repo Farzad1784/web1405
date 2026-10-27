@@ -39,48 +39,26 @@ let controllers = [
         }
     },
     {
-      name: "readFile",
-      func: function (request, response) {
-          let items = request.url.split("/");
+     name: "readFile",
+     func: function (request, response) {
+         let items = request.url.split("/");
 
-          readFile(items[2], "utf8", function (error, body) {
-              if (error) {
-                  console.log("error", error);
+         readFile(items[2], "utf8", function (error, body) {
+             if (error) {
+                 console.log("error", error);
 
-                  response.writeHead(500);
-                  response.end("readFile error");
-              } else {
-                  console.log("readFile done");
+                 response.writeHead(500);
+                 response.end("readFile error");
+             } else {
+                 console.log("readFile done");
 
-                  response.writeHead(200);
-                  response.end(body);
-              }
-          });
-      }
+                 response.writeHead(200);
+                 response.end(body);
+             }
+         });
+     }
     }
-    // {
-    //     name: "readFile",
-    //     func: function (request, response) {
-    //         let items = request.url.split("/");
 
-    //         writeFile(items[2], function (error,body) {
-    //             if (error) {
-    //                 console.log("error", error);
-    //                 response.writeHead(500);
-    //                 response.write("readFIle error");
-    //                 response.end();
-                    
-    //             }
-    //             else{
-    //             console.log("readFile done");
-
-    //             response.writeHead(200);
-    //             response.write(body);
-    //             response.end();
-    //             }
-    //         });
-    //     }
-    // }
 ];
 
 function serverCallback(request, response) {
